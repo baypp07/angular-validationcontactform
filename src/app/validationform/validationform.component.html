@@ -1,0 +1,45 @@
+This is validation contact form
+<div class="card m-3">
+  <h5 class="card-header">Angular 8 Reactive Form Validation</h5>
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <!-- Title -->
+      <label>Title</label>
+      <select
+        formControlName="title"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.title.errors}"
+      >
+        <option value=""></option>
+        <option value="Mr">Mr</option>
+        <option value="Mrs">Mrs</option>
+        <option value="Miss">Miss</option>
+        <option value="Ms">Ms</option>
+      </select>
+
+      <div *ngIf="submitted && f.title.errors" class="invalid-reedback">
+        <div *ngIf="f.title?.errors.required">Title is required</div>
+      </div>
+
+      <!-- name -->
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          formControlName="lastname"
+          class="form-control"
+          [ngClass]="{'is-invalid':submitted && f?.lastname?.errors}"
+        />
+
+        <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+          <div *ngIf="f.lastname?.errors.required">First Name is required</div>
+        </div>
+      </div>
+
+      <!-- valid -->
+      <div>
+        <button>Confirm</button>
+      </div>
+    </form>
+  </div>
+</div>
