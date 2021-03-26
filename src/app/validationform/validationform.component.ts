@@ -16,7 +16,14 @@ export class ValidationformComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       name: ["", Validators.required],
       surname: ["", Validators.required],
-      email: ["", Validators.required],
+      email: [
+        "",
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
+        ]
+      ],
       phone: ["", Validators.required],
       message: ["", Validators.required]
     });
