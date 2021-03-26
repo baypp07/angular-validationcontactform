@@ -14,8 +14,11 @@ export class ValidationformComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      title: ["", Validators.required],
-      lastname: ["", Validators.required]
+      name: ["", Validators.required],
+      surname: ["", Validators.required],
+      email: ["", Validators.required],
+      phone: ["", Validators.required],
+      message: ["", Validators.required]
     });
   }
   get f() {
